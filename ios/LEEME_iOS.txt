@@ -1,0 +1,41 @@
+AeroLog EASA — Paquete iOS (proyecto nativo listo para compilar)
+================================================================
+
+Este ZIP contiene el proyecto iOS nativo (Capacitor) con tu app web ya
+incorporada dentro (dist/). Lo que NO contiene es un .ipa instalable:
+Windows no puede compilar apps iOS (eso exige Xcode en macOS) firmarlas
+(exige certificado de Apple).
+
+CÓMO INSTALAR AERolog EN UN IPHONE — 3 OPCIONES REALES
+-----------------------------------------------------
+
+ OPCIÓN A — RECOMENDADA (30 segundos, gratis, sin Mac):
+  1. Desde el iPhone, con Safari (no Chrome), abre:
+     http://192.168.1.5:3000   (misma red WiFi que el PC, con `npm run dev` corriendo)
+     — o cualquier URL pública si algún día publicas tu PWA —
+  2. Botón COMPARTIR (cuadrito con flecha) → "Añadir a pantalla de inicio".
+  3. Listo: icono "AeroLog" a pantalla completa, funciona sin conexión
+     (es la PWA que ya tienes empaquetada con service worker).
+
+ OPCIÓN B — .ipa REAL con Mac (Xcode):
+  1. Copia este ZIP a una Mac, descomprímelo.
+  2. Abre ios/App/App.xcworkspace con Xcode (gratis en Mac App Store).
+  3. Conecta tu iPhone por USB → Xcode → Run.
+     Con tu Apple ID gratuita (Settings → Accounts) Xcode firma y
+     despliega la app (caduca a los 7 días; re-jetpack regenera).
+  4. Para distribuirla sin límites se necesita la cuenta de desarrollador
+     de Apple (99 USD/año) y desde ahí Xcode genera el .ipa firmado.
+
+ OPCIÓN C — Servicio web (sin Mac):
+  https://www.pwabuilder.com  → pega la URL pública de tu PWA → descarga
+  el "iOS package" → hay que firmarlo igualmente con Apple Developer
+  (en iOS no existe instalar APK/IPA sin firmar, es política de Apple).
+
+ARCHIVOS CLAVE
+--------------
+ ios/App/App.xcworkspace   — proyecto a abrir en Xcode
+ ios/App/App/capacitor.config.json — appId com.aerolog.easa
+ ios/App/App/public/       — tu app web compilada dentro
+
+(Game Center/cámara/permisos: la app funciona 100% offline como el exe;
+ solo el parser PDF usa internet igual que en la versión web.)
